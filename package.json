@@ -1,0 +1,22 @@
+{
+  "name": "terminus_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "pm2 start ./src/index.js --name TerminusBOT --max-memory-restart 250M --log ./logs/pm2.log --time --watch src",
+    "start": "pm2 start ./src/index.js --name TerminusBOT --max-memory-restart 250M --log ./logs/pm2.log --time",
+    "prod": "node ./src/index.js production",
+    "dev": "nodemon ./src/index.js development",
+    "cmd-update": "node src/deploys/deploy-commands.js",
+    "cmd-remove": "node src/deploys/clear-commands.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.39.0"
+  }
+}
