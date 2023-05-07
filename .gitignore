@@ -4,4 +4,3 @@
 
 .env
 yarn.lock
-/src/config/config.json
