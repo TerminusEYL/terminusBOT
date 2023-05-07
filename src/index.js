@@ -1,8 +1,13 @@
 require('dotenv').config();
+
 const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
 
-const { getCommandsList, embedGreetings, embedError} = require('./utils');
+const { getCommandsList, embedGreetings, embedError, consoleLogInterceptor } = require('./utils');
 const config = require('./config/config.json');
+
+
+consoleLogInterceptor();
+
 
 if (process.argv.at(-1) === 'development') console.clear();
 
@@ -62,10 +67,9 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
 	const oldRoles = oldMember.roles.cache;
 	const newRoles = newMember.roles.cache;
 
-	// Member role ID
-	if (!oldRoles.has("1066207097219453100") && newRoles.has("1066207097219453100")) {
+	if (!oldRoles.has(config.memberRoleID) && newRoles.has(config.memberRoleID)) {
 		// general channel ID
-		const channel = await client.channels.fetch("1066208192960401430");
+		const channel = await client.channels.fetch(config.generalChannelID);
 		channel.send({ embeds: [embedGreetings({ userId: newMember.user.id })] })
 	}
 });

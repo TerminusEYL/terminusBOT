@@ -3,6 +3,7 @@ const getCommandsList = require("./getCommandsList");
 const getRolesByCommandName = require("./getRolesByCommandName");
 const embedGreetings = require("./embedGreetings");
 const embedError = require("./embedError");
+const consoleLogInterceptor = require("./consoleLogInterceptor");
 
 module.exports = {
   embedTemplate,
@@ -10,4 +11,5 @@ module.exports = {
   getCommandsList,
   embedGreetings,
   embedError,
+  consoleLogInterceptor,
 }
