@@ -7,12 +7,14 @@ Go to directory that repo has been downloaded to and run those commands:
 ```
 sudo apt update
 https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm use
 ```
 
 ## Running bot for the first time
-- Be sure to have `.env` file copied from `.env.example` and populated with proper variables,
-- run `npm install && npm run start`.
+In the project directory run:
+- `nvm use`
+- `npm install pm2 -g`
+- `cp .env.example .env` (don't forget to paste valid TOKEN inside `.env`)
+- `npm install && npm run start`.
 
 ## Checking script status
 - `pm2 [status|ls|list]`
